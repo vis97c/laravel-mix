@@ -19,7 +19,7 @@ module.exports = function() {
                         if (!/node_modules|bower_components/.test(path)) {
                             return (
                                 Config.fileLoaderDirs.images +
-                                '/[name].[ext]?[hash]'
+                                '/[name].[ext]'
                             );
                         }
 
@@ -31,8 +31,7 @@ module.exports = function() {
                                 .replace(
                                     /((.*(node_modules|bower_components))|images|image|img|assets)\//g,
                                     ''
-                                ) +
-                            '?[hash]'
+                                )
                         );
                     },
                     publicPath: Config.resourceRoot
@@ -53,7 +52,7 @@ module.exports = function() {
         options: {
             name: path => {
                 if (!/node_modules|bower_components/.test(path)) {
-                    return Config.fileLoaderDirs.fonts + '/[name].[ext]?[hash]';
+                    return Config.fileLoaderDirs.fonts + '/[name].[ext]';
                 }
 
                 return (
@@ -64,8 +63,7 @@ module.exports = function() {
                         .replace(
                             /((.*(node_modules|bower_components))|fonts|font|assets)\//g,
                             ''
-                        ) +
-                    '?[hash]'
+                        )
                 );
             },
             publicPath: Config.resourceRoot
@@ -77,7 +75,7 @@ module.exports = function() {
         test: /\.(cur|ani)$/,
         loader: 'file-loader',
         options: {
-            name: '[name].[ext]?[hash]',
+            name: '[name].[ext]',
             publicPath: Config.resourceRoot
         }
     });
